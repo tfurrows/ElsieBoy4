@@ -175,7 +175,7 @@ void keyMod() {
           if (arduboy.pressed(DOWN_BUTTON)) incVal = -1;
 
           // Make sure they aren't selecting a used character
-          lc4Key[pos] = nextAvail(lc4Key, incVal, selectChar);
+          lc4Key[pos] = nextAvail(lc4Key, 36, incVal, selectChar);
           for (int i = 0; i < 36; i++) {
             if (validChars[i] == lc4Key[pos]) selectChar = i;
           }
@@ -214,7 +214,7 @@ void keyMod() {
 
 void nonceMod() {
   // Nonce entry/modification (optional)
-  int pos = 0, selectChar = 0, isTaken, isOpen, incVal = 0;
+  int pos = 0, selectChar = 0, isTaken, incVal = 0;
 
   initView(2);
   showNonce(pos);
@@ -227,7 +227,7 @@ void nonceMod() {
         if (arduboy.pressed(DOWN_BUTTON)) incVal = -1;
 
         // Make sure they aren't selecting a used character
-        lc4Nonce[pos] = nextAvail(lc4Nonce, incVal, selectChar); //validChars[selectChar];
+        lc4Nonce[pos] = nextAvail(lc4Nonce, 6, incVal, selectChar);
         for (int i = 0; i < 36; i++) {
           if (validChars[i] == lc4Nonce[pos]) selectChar = i;
         }
@@ -237,7 +237,7 @@ void nonceMod() {
 
       if (arduboy.pressed(LEFT_BUTTON)) pos--;
       if (arduboy.pressed(RIGHT_BUTTON)) pos++;
-      if (pos < 0) pos = 35;
+      if (pos < 0) pos = 5;
       if (pos > 5) pos = 0;
 
       showNonce(pos);
@@ -509,7 +509,7 @@ int yesNo(int x, int y, int tsize) {
   return answer;
 }
 
-int nextAvail(int *inArray, int incVal, int selectChar) {
+int nextAvail(int *inArray, int arrSize, int incVal, int selectChar) {
   // Return next unused valid character for an array
   int isTaken = 1;
 
@@ -521,7 +521,7 @@ int nextAvail(int *inArray, int incVal, int selectChar) {
     if (selectChar < 0) selectChar = 35;
     if (selectChar > 35) selectChar = 0;
 
-    for (int i = 0; i < 36; i++) {
+    for (int i = 0; i < arrSize; i++) {
       if (validChars[selectChar] == inArray[i]) isTaken = 1;
     }
   }

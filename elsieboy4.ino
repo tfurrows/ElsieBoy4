@@ -1,10 +1,11 @@
 /*
-   ElsieBoy4 v0.3 - Turn your Arduboy into an air-gapped LC4 appliance.
+   ElsieBoy4 v0.3.2 - Turn your Arduboy into an air-gapped LC4 appliance.
    This is free and unencumbered software released into the public domain.
 */
 #include <Arduboy2.h>
 
 Arduboy2 arduboy;
+BeepPin1 beep;
 
 char verHead[] = "ElsieBoy4 0.3";
 int menuChoice = 0;
@@ -28,8 +29,9 @@ int steps = 0;
 
 void setup() {
   arduboy.begin();
+  beep.begin();
   arduboy.setTextWrap(true);
-  showOpts(menuChoice);
+  showOpts(menuChoice);  
 }
 
 void loop() {
@@ -362,7 +364,10 @@ void dencode(int opt) {
       shiftState(getDenc(validChars[pos], 1), validChars[pos]);
     }
     steps++;
-    delay(300);
+    beep.tone(beep.freq(240));
+    delay(50);
+    beep.noTone();
+    delay(250);
   }
 }
 
@@ -537,5 +542,11 @@ void shiftArray(int *arrVals, int arrSize) {
     temp1 = arrVals[i];
     arrVals[i] = temp;
     temp = temp1;
+  }
+}
+
+void playTone(unsigned int frequency, unsigned long duration) {
+  if (arduboy.audio.enabled() == true) {
+    tone(PIN_SPEAKER_1, frequency, duration);
   }
 }

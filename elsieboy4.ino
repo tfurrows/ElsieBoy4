@@ -155,7 +155,7 @@ void showStatus() {
 
 void keyMod() {
   // Key entry/modification (required)
-  int pos = 0, posInValid, selectChar = 0, isTaken, isOpen, incVal;
+  int pos = 0, posInValid=0, selectChar = 0, isTaken, isOpen, incVal;
 
   initView(1);
   arduboy.drawFastVLine(40, 10, 86);

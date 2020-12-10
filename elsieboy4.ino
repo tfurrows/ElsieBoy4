@@ -142,10 +142,10 @@ void showStatus() {
 
   showKey(lc4KeyState, marker[1] * 6 + marker[0]);
 
-  arduboy.setCursor(44, 16);
+  arduboy.setCursor(46, 14);
   arduboy.print((String)"Step: " + steps);
 
-  arduboy.setCursor(44, 24);
+  arduboy.setCursor(46, 22);
   arduboy.print((String)"Mark: " + marker[0] + "," + marker[1]);
   arduboy.display();
 
@@ -196,14 +196,14 @@ void keyMod() {
       }
 
       // Display character and marker indexes
-      arduboy.setCursor(80, 24);
+      arduboy.setCursor(78, 24);
       arduboy.setTextSize(3);
       arduboy.write(lc4Key[pos]);
 
       arduboy.setTextSize(1);
-      arduboy.setCursor(110, 34);
+      arduboy.setCursor(104, 32);
       arduboy.print(posInValid % 6);
-      arduboy.setCursor(85, 54);
+      arduboy.setCursor(83, 54);
       arduboy.print(posInValid / 6);
 
       arduboy.setCursor(0, 14);

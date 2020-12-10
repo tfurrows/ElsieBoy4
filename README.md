@@ -39,7 +39,9 @@ Using the B BUTTON, select one of the options described below:
 
 ## Notes
 
-The UI provides for an optional six character nonce. As I'm sure you're aware, you could simply include any size nonce with your message stream.
+If you don't know about ElsieFour (LC4), read about it here: https://eprint.iacr.org/2017/339
+
+The UI provides for an optional six character nonce. The nonce is *not* optional to the LC4 process, but has been made optional in the UI so that one could choose to compute the nonce as part of the entire message stream. If you're using a six character nonce, it's easiest to use the UI; if you're using a longer nonce, it's easier to compute it with the rest of your message stream.
 
 The UI does not provide for a signature, but you can append one to your message stream.
 

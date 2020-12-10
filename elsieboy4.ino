@@ -1,5 +1,5 @@
 /*
-   ElsieBoy4 v0.3.2 - Turn your Arduboy into an air-gapped LC4 appliance.
+   ElsieBoy4 v0.3.3 - Turn your Arduboy into an air-gapped LC4 appliance.
    This is free and unencumbered software released into the public domain.
 */
 #include <Arduboy2.h>
@@ -28,13 +28,18 @@ int marker[2] = {0, 0};
 int steps = 0;
 
 void setup() {
-  arduboy.begin();
+  arduboy.begin();  
   beep.begin();
+
+  arduboy.setFrameRate(30);
   arduboy.setTextWrap(true);
+  
   showOpts(menuChoice);  
 }
 
 void loop() {
+  if (!(arduboy.nextFrame())) return;
+    
   if (arduboy.anyPressed(UP_BUTTON | DOWN_BUTTON)) {
     if (arduboy.pressed(UP_BUTTON)) menuChoice--;
     if (arduboy.pressed(DOWN_BUTTON)) menuChoice++;

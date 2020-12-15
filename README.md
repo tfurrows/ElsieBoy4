@@ -37,7 +37,7 @@ Using the B BUTTON, select one of the options described below:
    Within an encode/decode session, the UP button moves you forward in the alphabet, the DOWN button moves you backward. The RIGHT button moves you forward in the alphabet six characters at a time, the LEFT button moves you backward six.
    The result of your encoding/decoding is displayed in real time as you select your character.
    Press A to accept the character and complete the encode/decode by shifting the key state and moving the marker. You can then begin encoding the next character.
-   Pess B to cancel the encode/decode and leave the key state and marker intact.
+   Press B to cancel the encode/decode and leave the key state and marker intact.
 4. ![ElsieBoy4 Key Status Screen](https://github.com/tfurrows/ElsieBoy4/blob/main/screenshots/elsieboy4_status.png)
    *Status >* For viewing key state and other stats.
    View the current key state and marker location, as well as the number of steps that have been completed.
@@ -48,7 +48,7 @@ Using the B BUTTON, select one of the options described below:
 
 If you don't know about ElsieFour (LC4), read about it here: https://eprint.iacr.org/2017/339
 
-The UI provides for an optional six character nonce. The nonce is *not* optional to the LC4 process, but has been made optional in the UI so that one could choose to compute the nonce as part of the entire message stream. If you're using a six character nonce, it's easiest to use the UI; if you're using a longer nonce, it's easier to compute it with the rest of your message stream.
+The UI provides for an optional six character nonce. The nonce is *not* optional to the LC4 algorithm, but has been made optional in the UI so that one could choose to compute the nonce as part of the entire message stream. If you're using a six character nonce, it's easiest to use the UI; if you're using a longer nonce, it's easier to compute it with the rest of your message stream.
 
 The UI does not provide for a signature, but you can append one to your message stream.
 
